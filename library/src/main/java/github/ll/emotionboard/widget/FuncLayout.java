@@ -37,6 +37,7 @@ public class FuncLayout extends LinearLayout {
     }
 
     public void addFuncView(int key, View view) {
+        // 添加布局文件
         if (mFuncViewArrayMap.get(key) != null) {
             return;
         }

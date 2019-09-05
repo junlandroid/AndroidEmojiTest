@@ -76,7 +76,7 @@ public class SimpleChatActivity extends AppCompatActivity implements FuncLayout.
 
         ekBar.setAdapter(adapter);
         ekBar.addOnFuncKeyBoardListener(this);
-        ekBar.addFuncView(new SimpleAppsGridView(this));
+        ekBar.addFuncView(new SimpleAppsGridView(this)); // 添加 “+” 区域的GridView
 
         ekBar.getEtChat().setOnSizeChangedListener(new EmoticonsEditText.OnSizeChangedListener() {
             @Override

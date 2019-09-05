@@ -45,7 +45,7 @@ public class EmoticonsBoard extends AutoHeightLayout implements View.OnClickList
         EmoticonsFuncView.EmoticonsFuncListener, OnToolBarItemClickListener,
         EmoticonsEditText.OnBackKeyClickListener, FuncLayout.OnFuncChangeListener {
 
-    public static final int FUNC_TYPE_EMOTION = -1;
+    public static final int FUNC_TYPE_EMOTION = -1; // 用来区分表情区域还是“+”区域
     public static final int FUNC_TYPE_APPPS = -2;
 
     protected LayoutInflater inflater;
@@ -198,6 +198,7 @@ public class EmoticonsBoard extends AutoHeightLayout implements View.OnClickList
 
     protected void toggleFuncView(int key) {
         showText();
+        // funcLayout
         funcLayout.toggleFuncView(key, isSoftKeyboardPop(), emoticonsEditText);
     }
 
@@ -266,6 +267,7 @@ public class EmoticonsBoard extends AutoHeightLayout implements View.OnClickList
                 EmoticonsKeyboardUtils.openSoftKeyboard(emoticonsEditText);
             }
         } else if (i == R.id.btn_face) {
+            // toggle 切换表情和键盘区域
             toggleFuncView(FUNC_TYPE_EMOTION);
         } else if (i == R.id.btn_multimedia) {
             toggleFuncView(FUNC_TYPE_APPPS);

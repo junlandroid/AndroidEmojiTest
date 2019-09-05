@@ -28,16 +28,19 @@ import java.io.InputStreamReader
  * @author Liliang
  * Email: 53127822@qq.com
  * @date 2018/6/8
+ *
+ *
  */
 object AdapterUtils {
 
+    // 创建表情Adapter
     fun getCommonAdapter(context: Context, emoticonClickListener: OnEmoticonClickListener<Emoticon>?): EmoticonPacksAdapter {
-        val packs = mutableListOf<EmoticonPack<out Emoticon>>()
+        val packs = mutableListOf<EmoticonPack<out Emoticon>>() //创建集合 存储所有的表情包
 
-        packs.add(getEmoji(context))
-        packs.add(getXhsPageSetEntity())
-        packs.add(getGoodGoodStudyPageSetEntity(context))
-        packs.add(getKaomojiPageSetEntity(context))
+        packs.add(getEmoji(context)) // DeleteBtnPageFactory
+        packs.add(getXhsPageSetEntity())//GridPageFactory
+        packs.add(getGoodGoodStudyPageSetEntity(context))//BigIconTextPageFactory
+        packs.add(getKaomojiPageSetEntity(context))//TextPageFactory
 
         val adapter = EmoticonPacksAdapter(packs)
         adapter.clickListener = emoticonClickListener
@@ -46,7 +49,7 @@ object AdapterUtils {
     }
 
     fun getEmoji(context: Context): EmoticonPack<Emoticon> {
-        val emojiArray = mutableListOf<Emoticon>()
+        val emojiArray = mutableListOf<Emoticon>() //创建可变的list集合
 
         DefEmoticons.sEmojiArray.take(30).mapTo(emojiArray) {
             val emoticon = Emoticon()
@@ -60,8 +63,8 @@ object AdapterUtils {
 
         pack.iconUri = context.getResourceUri(R.mipmap.icon_emoji)
 
-        val factory = DeleteBtnPageFactory<Emoticon>()
-        factory.deleteIconUri = context.getResourceUri(R.mipmap.icon_del)
+        val factory = DeleteBtnPageFactory<Emoticon>() // 输入框中表情删除按钮产生工厂类
+        factory.deleteIconUri = context.getResourceUri(R.mipmap.icon_del) //设置删除按钮图标
         factory.line = 3
         factory.row = 7
 

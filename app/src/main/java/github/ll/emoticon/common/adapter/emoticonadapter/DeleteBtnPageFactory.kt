@@ -15,6 +15,8 @@ import github.ll.emotionboard.utils.getResourceUri
  * @author Liliang
  * Email: 53127822@qq.com
  * @date 2018/6/12
+ *
+ * 表情ViewPager中的删除按钮
  */
 open class DeleteBtnPageFactory<T: Emoticon>: GridPageFactory<T>() {
 

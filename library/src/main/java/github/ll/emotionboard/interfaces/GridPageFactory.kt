@@ -27,14 +27,14 @@ open class GridPageFactory<T: Emoticon>: PageFactory<T> {
     }
 
     override fun create(context: Context, emoticons: List<T>, clickListener: OnEmoticonClickListener<Emoticon>?): View {
-        val pageView = EmoticonPageView(context)
+        val pageView = EmoticonPageView(context) //表情 GridView
 
         pageView.setNumColumns(row)
 
-        val adapter = createAdapter(context, emoticons, clickListener)
-        pageView.emoticonsGridView.adapter = adapter
+        val adapter = createAdapter(context, emoticons, clickListener) // 创建 adapter
+        pageView.emoticonsGridView.adapter = adapter // GridView setAdapter
 
-        return pageView
+        return pageView //返回GridView
     }
 
     open fun <T: Emoticon> createAdapter(context: Context, emoticons: List<T>, clickListener: OnEmoticonClickListener<Emoticon>?): BaseAdapter {
@@ -45,6 +45,9 @@ open class GridPageFactory<T: Emoticon>: PageFactory<T> {
     }
 }
 
+/**
+ * GridAdapter 子类有ImageAdapter，AppAdapter，BigIconTextEmotionAdapter，TextGridAdapter
+ */
 @Suppress("UNCHECKED_CAST")
 abstract class GridAdapter<T: Emoticon, V>(val context: Context,
                                            val emoticons: List<T>,
