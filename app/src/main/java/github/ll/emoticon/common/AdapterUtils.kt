@@ -136,7 +136,7 @@ object AdapterUtils {
 
         array.forEach {
             if (!TextUtils.isEmpty(it)) {
-                val temp = it.trim { it <= ' ' }
+                val temp = it.trim { it <= ' ' } //去掉空格
 
                 val text = temp.split(",".toRegex()).dropLastWhile { it.isEmpty() }
                 if (text.size == 2) {

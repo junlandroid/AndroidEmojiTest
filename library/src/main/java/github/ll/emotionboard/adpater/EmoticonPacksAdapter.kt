@@ -50,10 +50,10 @@ open class EmoticonPacksAdapter(val packList: List<EmoticonPack<out Emoticon>>):
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any? {
-        var pageNumber = position
+        var pageNumber = position // 当前viewpage的位置
         var pack: EmoticonPack<*>? = null
 
-        for (emoticonPack in packList) {
+        for (emoticonPack in packList) { // packList  不同类型的表情包集合 ， emoticonPack 具体的表情包
             if (emoticonPack.pageCount > pageNumber) {
                 pack = emoticonPack
                 break
@@ -63,6 +63,7 @@ open class EmoticonPacksAdapter(val packList: List<EmoticonPack<out Emoticon>>):
         }
 
         // 返回viewPager展示的页面
+        // 通过getView()  创建
         val view = pack?.getView(container.context, pageNumber, clickListener)
         view?.tag = position
         container.addView(view)

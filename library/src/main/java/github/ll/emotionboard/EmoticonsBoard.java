@@ -276,6 +276,7 @@ public class EmoticonsBoard extends AutoHeightLayout implements View.OnClickList
 
     @Override
     public void onToolBarItemClick(EmoticonPack<? extends Emoticon> pack) {
+        //
         emoticonsFuncView.setCurrentPageSet(pack);
     }
 
